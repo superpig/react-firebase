@@ -37,15 +37,16 @@ export default class App extends React.Component {
   }
 
   render() {
-    return <div className="row panel panel-default">
-      <div className="col-md-6 col-md-offset-3">
-        <h2 className="text-center">
-          To-Do List
-        </h2>
-        <Header addItem={this.handleAddItem} />
-        <div className={"content" + (this.state.loaded ? " loaded" : "") }>
-          <TodoList listItems={this.state.list} />
-        </div>
+    return <div className="container">
+      <div className="row panel panel-default">
+          <h2 className="text-center">
+            To-Do List
+          </h2>
+          <Header addItem={this.handleAddItem} />
+          <hr />
+          <div className={"content" + (this.state.loaded ? " loaded" : "") }>
+            <TodoList listItems={this.state.list} />
+          </div>
       </div>
     </div>
   }

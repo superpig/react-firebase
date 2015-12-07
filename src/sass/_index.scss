@@ -1,7 +1,28 @@
-.content {
-  opacity: 0;
-  transition: opacity 1s ease-in;
-}
-.loaded {
-  opacity: 1;
+$primary-color: #F8F8F8;
+
+body {
+  background-color: $primary-color;
+
+  .container {
+    width: 550px;
+    margin: 200px auto;
+
+    .content {
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+
+    .loaded {
+      opacity: 1;
+    }
+
+    .panel{
+      padding: 0 20px;
+    }
+    
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+  }
 }

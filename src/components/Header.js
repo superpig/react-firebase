@@ -29,7 +29,7 @@ export default class Header extends React.Component {
         className="form-control" />
       <span className="input-group-btn">
         <button
-          className="btn btn-default"
+          className="btn btn-default btn-success"
           onClick={this.handleClick}
           type="button">
           Add Todo

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import TodoItem from './TodoItem';
 
 class TodoList extends Component {
   renderTodoList() {
@@ -8,19 +9,18 @@ class TodoList extends Component {
       </h1>
     } else {
       let children = [];
-      children =  this.props.listItems.map(function(item) {
-        return <li>
-          {item.text}
-        </li>
+      children =  this.props.listItems.map((item, index) => {
+        item.key = index;
+        return <TodoItem item={item} key={index} />
       });
       return children;
     }
   }
 
   render() {
-    return <ul>
+    return <div>
       {this.renderTodoList()}
-    </ul>
+    </div>
   }
 }
 
