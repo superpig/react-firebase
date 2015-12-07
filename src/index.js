@@ -1,15 +1,6 @@
 import React  from 'react';
-import Rebase from 're-base';
+import ReactDOM from 'react-dom';
+import App from './components/App';
+import './sass/_index.scss';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return <h1>
-      hello
-    </h1>
-  }
-};
-
-React.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
