@@ -19,12 +19,8 @@ export default class App extends React.Component {
     base.syncState('todoList', {
       context: this,
       state: 'list',
-      asArray: true
-    });
-    base.listenTo('value', {
-      context: this,
       asArray: true,
-      then(data) {
+      then() {
         this.setState({ loaded: true });
       }
     })
@@ -36,17 +32,55 @@ export default class App extends React.Component {
     });
   }
 
+  handleDeleteItem = (index) => {
+    var newList = this.state.list;
+    newList.splice(index, 1);
+    this.setState({
+      list: newList
+    });
+  }
+
+  deleteButtons() {
+    if (!this.state.loaded) {
+      return null;
+    } else {
+      return <div className="text-center clear-complete">
+        <hr />
+        <button
+          type="button"
+          onClick={this.handleDeleteAllDone}
+          className="btn btn-info">
+          Clear Complete
+        </button>
+      </div>
+    }
+  }
+
+  handleDeleteAllDone = () => {
+    var newList = this.state.list.filter((item)=> {
+      return item.done ? "" : item;
+    })
+    console.log(newList);
+    this.setState({
+      list: newList
+    });
+  }
+
   render() {
     return <div className="container">
       <div className="row panel panel-default">
-          <h2 className="text-center">
-            To-Do List
-          </h2>
-          <Header addItem={this.handleAddItem} />
-          <hr />
-          <div className={"content" + (this.state.loaded ? " loaded" : "") }>
-            <TodoList listItems={this.state.list} />
-          </div>
+        <h1 className="text-center">
+          To-Do List
+        </h1>
+        <Header addItem={this.handleAddItem} />
+        <hr />
+        <div className={"content" + (this.state.loaded ? " loaded" : "") }>
+          <TodoList
+            listItems={this.state.list}
+            deleteItem={this.handleDeleteItem}
+            />
+          {this.deleteButtons()}
+        </div>
       </div>
     </div>
   }

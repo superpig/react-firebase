@@ -7,6 +7,10 @@ body {
     width: 550px;
     margin: 200px auto;
 
+    h1 {
+      font-size: 18px; 
+    }
+
     .content {
       opacity: 0;
       transition: opacity 1s ease-in;
@@ -19,8 +23,12 @@ body {
     .panel{
       padding: 0 20px;
     }
-    
+
     .input-group {
+      margin-bottom: 15px;
+    }
+
+    .clear-complete {
       margin-bottom: 15px;
     }
 

@@ -12,10 +12,14 @@ export default class Header extends React.Component {
   }
 
   handleClick = () => {
-    this.props.addItem({
-      text: this.state.text,
-      done: false
-    });
+    if (this.state.text === "") {
+      alert("Can't be empty!");
+    } else {
+      this.props.addItem({
+        text: this.state.text,
+        done: false
+      });
+    }
     this.setState({
       text: ""
     });
